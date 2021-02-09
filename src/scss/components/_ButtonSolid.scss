@@ -29,9 +29,11 @@ $btnBorderRadius: (
 // across all solid buttons
 @mixin button-solid-base {
   background-color: $btnColor;
+  
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  
   // state styles
   transition: 220ms all ease-in-out;
   &:hover,
@@ -57,13 +59,13 @@ $btnBorderRadius: (
   min-width: 122px;
   min-height: 40px;
 
-  &__label {
+  & .ButtonSolid__label {
     border-radius: map-get($btnBorderRadius, 'small');
     @include label-base;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 1px;
-    padding: 12px 20px;
+    padding: 10px 20px 14px;
   }
 }
 
@@ -73,12 +75,44 @@ $btnBorderRadius: (
   min-width: 134px;
   min-height: 48px;
 
-  &__label {
+  & .ButtonSolid__label {
     border-radius: map-get($btnBorderRadius, 'medium');
     @include label-base;
     font-size: 15px;
     line-height: 1.33;
     letter-spacing: 0.9px;
-    padding: 14px 24px; 
+    padding: 12px 24px 16px; 
+  }
+} 
+
+.ButtonSolid--large {
+  @include button-solid-base;
+  border-radius: map-get($btnBorderRadius, 'large');
+  min-width: 147px;
+  min-height: 56px;
+
+  & .ButtonSolid__label {
+    border-radius: map-get($btnBorderRadius, 'large');
+    @include label-base;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.8px;
+    padding: 16px 28px 20px; 
+  }
+}
+
+.ButtonSolid--xtraLarge {
+  @include button-solid-base;
+  border-radius: map-get($btnBorderRadius, 'xtra-large');
+  min-width: 159px;
+  min-height: 64px;
+
+  & .ButtonSolid__label {
+    border-radius: map-get($btnBorderRadius, 'xtra-large');
+    @include label-base;
+    font-size: 17px;
+    line-height: 1.41;
+    letter-spacing: 0.7px;
+    padding: 18px 32px 22px; 
   }
 }
