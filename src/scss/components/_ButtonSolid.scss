@@ -5,24 +5,21 @@
   margin-bottom: 16px;
 }
 
-
 /* 
 
   When moving this code to sputnik,
-  remember to use the mapts for setting the btnColor and
+  remember to use the maps for setting the btnColor and
   btnTextColor variables 
 
 */
 $btnColor: #ffc900;
 $btnTextColor: #3b012d; 
 
-
 $btnBorderRadius: (
   'small': 12px,
   'medium': 16px,
   'large': 20px,
   'xtra-large': 24px,
-
 );
 
 // the base styles that are shared
