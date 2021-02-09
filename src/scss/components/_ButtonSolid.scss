@@ -1,8 +1,21 @@
 // _ButtonSolid.scss
 
+// dev
+.row {
+  margin-bottom: 16px;
+}
+
+
+/* 
+
+  When moving this code to sputnik,
+  remember to use the mapts for setting the btnColor and
+  btnTextColor variables 
+
+*/
 $btnColor: #ffc900;
-$btnTextColor: #3b012d;
-// $btnBorderRadius: 12px;
+$btnTextColor: #3b012d; 
+
 
 $btnBorderRadius: (
   'small': 12px,
@@ -12,17 +25,13 @@ $btnBorderRadius: (
 
 );
 
-.ButtonSolid {
+// the base styles that are shared
+// across all solid buttons
+@mixin button-solid-base {
   background-color: $btnColor;
-  border-radius: map-get($btnBorderRadius, 'small'); 
-  display: inline-block;
-  min-width: 122px;
-  min-height: 40px;
-  
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  
   // state styles
   transition: 220ms all ease-in-out;
   &:hover,
@@ -31,19 +40,45 @@ $btnBorderRadius: (
     background-color: scale-color($btnColor, $lightness: -20%);
     text-decoration: none;
   }
+}
+
+@mixin label-base {
+  color: $btnTextColor; 
+  font-family: map-get($brand-fonts, 'primary');
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+}
+
+.ButtonSolid {
+  @include button-solid-base;
+  border-radius: map-get($btnBorderRadius, 'small'); 
+  min-width: 122px;
+  min-height: 40px;
 
   &__label {
     border-radius: map-get($btnBorderRadius, 'small');
-    color: $btnTextColor; 
-    
-    font-family: map-get($brand-fonts, 'primary');
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
+    @include label-base;
+    font-size: 14px;
     line-height: 1.14;
     letter-spacing: 1px;
-    text-align: center;
-    
     padding: 12px 20px;
+  }
+}
+
+.ButtonSolid--medium {
+  @include button-solid-base;
+  border-radius: map-get($btnBorderRadius, 'medium');
+  min-width: 134px;
+  min-height: 48px;
+
+  &__label {
+    border-radius: map-get($btnBorderRadius, 'medium');
+    @include label-base;
+    font-size: 15px;
+    line-height: 1.33;
+    letter-spacing: 0.9px;
+    padding: 14px 24px; 
   }
 }
