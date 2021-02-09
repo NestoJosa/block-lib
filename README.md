@@ -1,4 +1,4 @@
-// project-template
+// block-lib
 
 Bootstrap
 - the styles are hosted locally in order to implement modifications
