@@ -1,0 +1,49 @@
+// _ButtonSolid.scss
+
+$btnColor: #ffc900;
+$btnTextColor: #3b012d;
+// $btnBorderRadius: 12px;
+
+$btnBorderRadius: (
+  'small': 12px,
+  'medium': 16px,
+  'large': 20px,
+  'xtra-large': 24px,
+
+);
+
+.ButtonSolid {
+  background-color: $btnColor;
+  border-radius: map-get($btnBorderRadius, 'small'); 
+  display: inline-block;
+  min-width: 122px;
+  min-height: 40px;
+  
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+  // state styles
+  transition: 220ms all ease-in-out;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: scale-color($btnColor, $lightness: -20%);
+    text-decoration: none;
+  }
+
+  &__label {
+    border-radius: map-get($btnBorderRadius, 'small');
+    color: $btnTextColor; 
+    
+    font-family: map-get($brand-fonts, 'primary');
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: 1px;
+    text-align: center;
+    
+    padding: 12px 20px;
+  }
+}
