@@ -1,4 +1,4 @@
-// _ButtonSolid.scss
+// _ButtonGhost.scss
 
 // dev
 .row {
@@ -12,8 +12,9 @@
   btnTextColor variables 
 
 */
-$btnColor: #ffc900;
-$btnTextColor: #3b012d; 
+$btnColor: #fff;
+$btnTextColor: #3b012d;
+$btnBorderColor: #ffc900;
 
 $btnBorderRadius: (
   'small': 12px,
@@ -23,9 +24,10 @@ $btnBorderRadius: (
 );
 
 // the base styles that are shared
-// across all solid buttons
-@mixin button-solid-base {
+// across all ghost buttons
+@mixin button-ghost-base {
   background-color: $btnColor;
+  border: 1px solid $btnBorderColor;
   display: inline-block;
   text-align: center;
   // state styles
@@ -46,14 +48,14 @@ $btnBorderRadius: (
   font-style: normal;
 }
 
-.ButtonSolid {
-  @include button-solid-base;
+.ButtonGhost {
+  @include button-ghost-base;
   border-radius: map-get($btnBorderRadius, 'small'); 
   min-width: 122px;
   min-height: 40px;
   padding: 10px 20px 14px;
 
-  & .ButtonSolid__label {
+  & .ButtonGhost__label {
     @include label-base;
     font-size: 14px;
     line-height: 1.14;
@@ -61,14 +63,14 @@ $btnBorderRadius: (
   }
 }
 
-.ButtonSolid--medium {
-  @include button-solid-base;
+.ButtonGhost--medium {
+  @include button-ghost-base;
   border-radius: map-get($btnBorderRadius, 'medium');
   min-width: 134px;
   min-height: 48px;
   padding: 12px 24px 16px; 
 
-  & .ButtonSolid__label {
+  & .ButtonGhost__label {
     @include label-base;
     font-size: 15px;
     line-height: 1.33;
@@ -77,14 +79,14 @@ $btnBorderRadius: (
   }
 } 
 
-.ButtonSolid--large {
-  @include button-solid-base;
+.ButtonGhost--large {
+  @include button-ghost-base;
   border-radius: map-get($btnBorderRadius, 'large');
   min-width: 147px;
   min-height: 56px;
   padding: 16px 28px 20px; 
 
-  & .ButtonSolid__label {
+  & .ButtonGhost__label {
     @include label-base;
     font-size: 16px;
     line-height: 1.25;
@@ -93,14 +95,14 @@ $btnBorderRadius: (
   }
 }
 
-.ButtonSolid--xtraLarge {
-  @include button-solid-base;
+.ButtonGhost--xtraLarge {
+  @include button-ghost-base;
   border-radius: map-get($btnBorderRadius, 'xtra-large');
   min-width: 159px;
   min-height: 64px;
   padding: 18px 32px 22px;
 
-  & .ButtonSolid__label {
+  & .ButtonGhost__label {
     @include label-base;
     font-size: 17px;
     line-height: 1.41;
