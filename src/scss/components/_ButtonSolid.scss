@@ -62,7 +62,7 @@ $btnBorderRadius: (
   border-radius: map-get($btnBorderRadius, 'small'); 
   min-width: 122px;
   min-height: 40px;
-  padding: 10px 20px 14px;
+  padding: 12px 20px;
 
   @include label-base;
   font-size: 14px;
@@ -79,7 +79,7 @@ $btnBorderRadius: (
   border-radius: map-get($btnBorderRadius, 'medium');
   min-width: 134px;
   min-height: 48px;
-  padding: 12px 24px 16px; 
+  padding: 14px 24px; 
 
   @include label-base;
   font-size: 15px;
@@ -96,7 +96,7 @@ $btnBorderRadius: (
   border-radius: map-get($btnBorderRadius, 'large');
   min-width: 147px;
   min-height: 56px;
-  padding: 16px 28px 20px; 
+  padding: 18px 28px; 
 
   @include label-base;
   font-size: 16px;
@@ -113,7 +113,7 @@ $btnBorderRadius: (
   border-radius: map-get($btnBorderRadius, 'extra-large');
   min-width: 159px;
   min-height: 64px;
-  padding: 18px 32px 22px;
+  padding: 20px 32px;
 
   @include label-base;
   font-size: 17px;
