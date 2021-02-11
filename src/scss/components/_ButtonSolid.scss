@@ -8,102 +8,119 @@
 /* 
 
   When moving this code to sputnik,
-  remember to use the maps for setting the btnColor and
-  btnTextColor variables 
+  remember to use the maps for setting 
+  the color variables
 
 */
-$btnColor: #ffc900;
-$btnTextColor: #3b012d; 
+$btnBackgroundColor: #ffc900;
+$btnBackgroundColor--ghost: #fff;
+$btnTextColor: #3b012d;
+$btnBorderColor: #ffc900;
 
 $btnBorderRadius: (
   'small': 12px,
   'medium': 16px,
   'large': 20px,
-  'xtra-large': 24px,
+  'extra-large': 24px,
 );
 
-// the base styles that are shared
-// across all solid buttons
-@mixin button-solid-base {
-  background-color: $btnColor;
+@mixin button-base {
+  background-color: $btnBackgroundColor;
   display: inline-block;
-  text-align: center;
+  
   // state styles
   transition: 220ms all ease-in-out;
   &:hover,
   &:active,
   &:focus {
-    background-color: scale-color($btnColor, $lightness: -5%);
+    background-color: scale-color($btnBackgroundColor, $lightness: -10%);
     text-decoration: none;
   }
 }
 
 @mixin label-base {
-  color: $btnTextColor; 
+  color: $btnTextColor !important; // overrule bootstrap; 
   font-family: map-get($brand-fonts, 'primary');
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
+  text-align: center;
 }
 
-.ButtonSolid {
-  @include button-solid-base;
+@mixin ghost-base {
+  background-color: $btnBackgroundColor--ghost;
+  border: 1px solid $btnBorderColor;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: scale-color($btnBackgroundColor--ghost, $lightness: -10%);
+  }
+}
+
+.Button {
+  @include button-base;
   border-radius: map-get($btnBorderRadius, 'small'); 
   min-width: 122px;
   min-height: 40px;
   padding: 10px 20px 14px;
 
-  & .ButtonSolid__label {
-    @include label-base;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 1px;
+  @include label-base;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 1px;
+
+  &--ghost {
+    @include ghost-base;
   }
 }
 
-.ButtonSolid--medium {
-  @include button-solid-base;
+.ButtonMedium {
+  @include button-base;
   border-radius: map-get($btnBorderRadius, 'medium');
   min-width: 134px;
   min-height: 48px;
   padding: 12px 24px 16px; 
 
-  & .ButtonSolid__label {
-    @include label-base;
-    font-size: 15px;
-    line-height: 1.33;
-    letter-spacing: 0.9px;
-    
-  }
-} 
+  @include label-base;
+  font-size: 15px;
+  line-height: 1.33;
+  letter-spacing: 0.9px;
 
-.ButtonSolid--large {
-  @include button-solid-base;
+  &--ghost {
+    @include ghost-base;
+  }
+}
+
+.ButtonLarge {
+  @include button-base;
   border-radius: map-get($btnBorderRadius, 'large');
   min-width: 147px;
   min-height: 56px;
   padding: 16px 28px 20px; 
 
-  & .ButtonSolid__label {
-    @include label-base;
-    font-size: 16px;
-    line-height: 1.25;
-    letter-spacing: 0.8px;
-    
+  @include label-base;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.8px;
+
+  &--ghost {
+    @include ghost-base;
   }
 }
 
-.ButtonSolid--xtraLarge {
-  @include button-solid-base;
-  border-radius: map-get($btnBorderRadius, 'xtra-large');
+.ButtonExtraLarge {
+  @include button-base;
+  border-radius: map-get($btnBorderRadius, 'extra-large');
   min-width: 159px;
   min-height: 64px;
   padding: 18px 32px 22px;
 
-  & .ButtonSolid__label {
-    @include label-base;
-    font-size: 17px;
-    line-height: 1.41;
-    letter-spacing: 0.7px;
+  @include label-base;
+  font-size: 17px;
+  line-height: 1.41;
+  letter-spacing: 0.7px;
+
+  &--ghost {
+    @include ghost-base;
   }
 }
